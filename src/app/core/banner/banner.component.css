@@ -1,0 +1,18 @@
+.card-header{
+    border: 0px;
+    border-bottom: 1px solid #e6e6e6 !important;
+    background-color: #fff !important;
+}
+.background__lighter-blue{
+    background-color: #F5F8fb;
+}
+
+.btn{
+    padding: 13px 32px !important;
+    border: 0px;
+    border-radius: 3px;
+    font-size: 1rem;
+    line-height: 1.5;
+    box-shadow: 0 5px 8px rgba(79,112,206,.15);
+}
+

@@ -1,0 +1,613 @@
+<div class="py-4 background__lighter-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="card shadow border-0 mb-4 mx-auto">
+                    <h3 class="text-center mb-0 mt-3">Rolling Radius {{ isLoginMode ? 'LogIn' : 'Registeration' }}{{ isOtpMode ? ' OTP' : '' }}</h3>
+                    <hr>
+                    <div class="card-body">
+
+                    <div *ngIf="isLoading" class="text-center">
+                        <app-loading-spinner></app-loading-spinner>
+                    </div>
+
+                     <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+                        <div class="alert alert-success" *ngIf="isSignupMode">
+                            {{otpMessage}}
+                        </div>
+
+                        <div class="form-group" *ngIf="isLoginMode || isOtpMode">
+                            <label for="phone_number">Phone Number</label>
+                            <input type="number" ngModel name="phone_number" class="form-control" id="phone_number" min="10" max="10"required>
+                        </div>
+                        <div class="form-group" *ngIf="isLoginMode">
+                            <label for="password">Password</label>
+                            <input type="password" ngModel name="password" class="form-control" id="password" required>
+                        </div>
+                        
+
+                        <div class="row" *ngIf="isSignupMode">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="username">Username*</label>
+                                    <input type="text" ngModel name="username" class="form-control" id="username">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="otp">Otp*</label>
+                                    <input type="number" ngModel name="otp" class="form-control" id="otp">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="isSignupMode">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="password">Password*</label>
+                                    <input type="password" ngModel name="password" class="form-control" id="password">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirm Password*</label>
+                                    <input type="password" ngModel name="confirm-password" class="form-control" id="confirm-password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="isSignupMode">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="company-name">Company Name</label>
+                                    <input type="company-name" ngModel name="company-name" class="form-control" id="company-name">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="referral-number">Referral Number</label>
+                                    <input type="number" ngModel name="referral-number" class="form-control" id="referral-number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="isSignupMode">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="city-name">City Name</label>
+                                    <input type="text" ngModel name="city-name" class="form-control" id="city-name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-check" *ngIf="isSignupMode">
+                            <input type="checkbox" ngModel name="terms" class="form-check-input" id="terms" required>
+                            <label class="form-check-label" for="terms">I have read and agree to the <a data-toggle="modal" data-target=".bd-example-modal-xl" style="color:#4f70ce;cursor: pointer;">Terms and Conditions</a>.</label>
+                            
+                            <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl"  role="document" style="width: 90% !important; max-width: none !important;">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Terms and Conditions</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                          <pre>
+                                              <div class="row m-2" style="white-space: pre-line; font-family: Arial, Helvetica, sans-serif;">
+                                                  This legal document is an electronic record in terms of Information Technology Act, 2000 and rules there under as applicable and the amended provisions pertaining to electronic records in various statutes as amended by the Information Technology Act, 2000. This electronic record is generated by a computer system and does not require any physical or digital signatures.
+                              
+                              
+                              
+                                                  This legal document is published in accordance with the provisions of Rule 3 (1) of the Information Technology (Intermediaries guidelines) Rules, 2011 and Rule 4 of the Information Technology (Reasonable security practices and procedures and sensitive personal data or information) Rules, 2011 of Information Technology Act, 2000 amended through Information Technology Amendment Act, 2008 that require publishing the Terms of Services and practices for access or usage of www.rollingradius.com and other integrated systems ("RollingRadius").
+                              
+                              
+                              
+                                                  These terms of services apply to all users which use RollingRadius web and its integrated systems. Users in this context shall be RollingRadius service partners including its owners, managers and staff members, and actual end users who use RollingRadius web to connect with RollingRadius service partners for its transportation needs.
+                              
+                              
+                              
+                                                  By using this web, clicking the "I accept/ I agree" button or completing the registration process, you clearly agree and acknowledge that you have reviewed these terms of service, given consent and accepted this agreement.
+                              
+                              
+                              
+                                                  References in these Terms to "we" or "us" or "web" or "company" are references to RollingRadius web and "you" as user/users of RollingRadius web and its integrated systems.
+                              
+                              
+                              
+                                                  Purpose of RollingRadius
+                              
+                                                  We are an intermediate services provider between customers who want to book truck/transport services and truck drivers/owners who want to offer services to customers.
+                              
+                              
+                              
+                                                  User Agreement
+                              
+                                                  This User Agreement contains rules and regulations, policies and terms and conditions and agreement applicable to any person who may access or use RollingRadius, including any subdomains, Web Pages or extension of RollingRadius and you hereby agree and acknowledge to be bound by the terms of this User Agreement.
+                              
+                                                  The use of RollingRadius and the services provided are subject to the rules and regulations, policies, notices, terms and conditions set forth in this User Agreement.
+                              
+                                                  Amendment: The Company reserves the right to change this Web and/or alter the terms and conditions of this User Agreement as well other policies at any time and retains the right to deny access to anyone who the Company believes has violated the provisions of this User Agreement. You are advised that any amendment to the User Agreement or rules and policies incorporated herein by reference will only be notified on the Web on publicly accessible links and you agree by accessing, browsing or using this web that this constitutes sufficient notice for all purposes against you. The revised version/ terms shall be effective from the time that the Company posts the same on the Web. [In the event, that the User Agreement includes a substantial change, the Company will provide prior notice of such substantial change by posting the same on the Web and also at the email address provided by the User to the Company. For the purposes of this User Agreement, 'substantial change' means a change to the terms of this User Agreement that reduces your rights or increases your responsibilities.]
+                              
+                              
+                              
+                                                  By impliedly or expressly accepting this User Agreement, You also accept and agree to be bound by RollingRadius Rules and Policies as provided from time to time.
+                              
+                              
+                              
+                                                  Eligibility
+                              
+                                                  This Web may only be used or accessed by such persons who can form legally binding contracts under Indian Contract Act, 1872. Persons who are 'incompetent to contract' within the meaning of the Indian Contract Act, 1872 including minors, persons of unsound mind, and insolvents are not eligible to use the Web. A minor is not allowed to access or register as a user on the Web. In case of registration by an entity, by accepting the User Agreement you represent that such an entity has sufficient authority under applicable law to enter into the User Agreement to accept this User Agreement.
+                              
+                              
+                              
+                                                  Registration and Communication
+                              
+                                                  Registration:
+                              
+                                                  You are solely responsible for maintaining the secrecy and confidentiality of your login credentials. You hereby acknowledge and accept that the web will grant access to any person who has obtained your login credentials in the same manner as it would have granted access to you and you are responsible for all activities conducted under your account. The Company, its employees or associates shall never be responsible in any manner for any kind of losses whatsoever occurring from such breach of security.
+                              
+                                                  You shall not use this Web for any other purpose including for subscription other than as mentioned above that are not allowed under applicable law in any manner.
+                              
+                                                  You agree to provide true, accurate and complete information while registering or for any other purpose when prompted to do so on the Web. You are prohibited from misrepresenting your identity and agree not to represent yourself as another User or login/ register using the identity of any other person. You are responsible to maintain and promptly update the information provided while registering or for any other purpose on the Web to ensure that the information provided by you is true, accurate, current and complete at all times. If you provide any information that is untrue, inaccurate, not current or incomplete or the Company has reasonable grounds to deduce that such information is untrue, inaccurate, not current or incomplete, or not in accordance with this User Agreement, the Company reserves the right to indefinitely suspend or terminate or block your use or access to the Web in any manner whatsoever.
+                              
+                              
+                              
+                                                  Electronic Communication: You agree to keep yourself updated with all data, information and communication pertaining to you made available on the Web by the Company. You further agree that your use of the Web or provision of any data or information including any correspondence (by email or otherwise) to or by the Company is through electronic records and you give consent to receive communication from the Company via electronic records which will be deemed adequate service of notice/ electronic record.
+                              
+                              
+                              
+                                                  Technical requirements
+                              
+                                                  User may only register with RollingRadius.com if you have the necessary technical requirements at your disposal. Technical requirements are PC/Tablet/SmartPhone and broadband internet connection or at least 3G internet connection. The availability and the proper functioning of these technical requirements are the sole responsibility of the User.
+                              
+                                                  The instructions "How to use" RollingRadius.com will be available on the homepage of the web. All users are to ensure that they read and adhere to these instructions for accessing RollingRadius.com. The user agrees that RollingRadius shall not be held responsible in event of any occurrence due to the non-adherence of these instructions which prevents the user from using the web as designed or due to any reasons over which RollingRadius have no control.
+                              
+                                                  You also give permission to the Company to store details and records of your usage of the Web indefinitely. However, this does not constitute any obligation on the part of the Company or the Web to do so.
+                              
+                              
+                              
+                                                  Payment
+                              
+                                                  Payment plans, payment terms and Refund policy for end users of RollingRadius are defined below in Annexure-A. However, we reserve the right to amend this payment policy and charges for the services rendered. In case if we amend our payment policy and charge for the service rendered, End Users will be intimated of the same, and it will be up to them to decide whether or not they will continue with the services offered by us. Such changes are effective as soon as they are posted on the Site.
+                              
+                                                  All different types of Users are responsible for paying all charges/ fees associated with the use of the Web and shall be liable to pay any and all applicable taxes, charges, cess etc. which may be levied. In case of any non- payment, the Company reserves the right to issue a warning or temporarily/ indefinitely suspend or terminate your usage with the Web and disallow access to the Web.
+                              
+                                                  The Company reserves the right to introduce new services or modify/upgrade the existing services provided on the Web. Additionally, the Company at its sole discretion may introduce new charges for the new or modified/upgraded services provided. Changes to the User Agreement or any of the rules and policies of the Company shall be posted on the Web and such changes shall automatically become effective immediately after they are posted on the Web.
+                              
+                                                  Payments must be made using the any of the payment software's of various payment gateway service providers in accordance with the terms and conditions / privacy policy of payment gateway. We facilitate payment processing through PCI compliant debit card/credit card/net banking/mobile banking/ mobile wallet/gift cards payment gateways. The user clearly agrees and acknowledges that company shall not be held responsible in event of any delays, errors and frauds in processing of payment by entities outside the control of company.
+                              
+                                                  Company uses Payment systems as may be authorized by the Reserve Bank of India for collection, refund and remittance, as the case may be.
+                              
+                                                  The Company neither makes any representations nor makes any warranties regarding the amount of time needed to complete processing, including delays in the online payment system and nor shall the Company be liable for any actual or consequential damages arising from any claim of delay or any payment process related errors or delays.
+                              
+                              
+                              
+                                                  Services Activation and Delivery:
+                              
+                                                  Activation e-mail/sms- After the registration and successful payment of charges for our services offered, the user will get an e-mail/sms for acknowledgment.
+                              
+                                                  Services- User will start receiving all services according to the type of vehicle and quantity of goods to be loaded in the truck within maximum 24 hours of completion of all the due procedures and acknowledgment of activation email/sms. However, you agree and acknowledge that the company shall never be held responsible for any delays due to whatsoever reasons. Web access is not possible during maintenance periods. Users may be informed about maintenance periods wherever possible.
+                              
+                                                  The user agrees and acknowledges that company shall never be held responsible for any problems that may arise during the course of the services delivering due to the internet malfunction/connectivity issues and when the web is closed for maintenance/updating with or without prior notice.
+                              
+                              
+                              
+                                                  User account and security
+                              
+                                                  To register for the services, you must complete the registration process by providing us with current, complete and accurate information as prompted by the registration form, including your e-mail address and mobile number. You will protect your account and take full responsibility for your own, and a third party, use of your accounts. You are solely responsible for any and all activities that occur under your account. You must notify us immediately upon learning of any unauthorized use of your account or any other breach of security. Any personal data collected will be used by FaberComputing to contact you via phone, push notifications, SMS or e-mail for marketing and to deliver certain updates for services or information you have requested.
+                              
+                              
+                              
+                                                  User Obligations
+                              
+                                                  You agree and undertake not to host, display, upload, modify, publish, transmit, update or share any information or list any information or item that:
+                              
+                                                  - belongs to another person and to which you do not have any right to;
+                              
+                                                  - is grossly harmful, harassing, blasphemous, defamatory, obscene, pornographic, paedophilic, libelous, invasive of another's privacy, hateful, or racially, ethnically objectionable, disparaging, relating or encouraging money laundering or gambling, or otherwise unlawful in any manner whatever; or unlawfully threatening or unlawfully harassing harm minors in any way;
+                              
+                                                  - infringes any patent, trademark, copyright or other proprietary rights or third party's stride secrets or rights of publicity or privacy or shall not be fraudulent or involve the sale of counterfeit or stolen items;
+                              
+                                                  - violates any law for the time being in force;
+                              
+                                                  - deceives or misleads the addressee/ users about the origin of such messages or communicates any information which is grossly offensive or menacing in nature;
+                              
+                                                  - impersonate another person or use an anonymous proxy;
+                              
+                                                  - contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer resource; or contains any Trojan horses, worms, time bombs, cancelbots, easter eggs or other computer programming routines that may damage, detrimentally interfere with, diminish value of, surreptitiously intercept or expropriate any system, data or personal information;
+                              
+                                                  - threatens the unity, integrity, defense, security or sovereignty of India, friendly relations with foreign states, or public order or causes incitement to the commission of any cognizable offense or prevents investigation of any offense or is insulting any other nation;
+                              
+                                                  - shall not be false, inaccurate or misleading;
+                              
+                                                  - shall not, directly or indirectly, offer, attempt to offer, trade or attempt to trade in the dealing which is prohibited or restricted in any manner under the provisions of any applicable law, rule, regulation or guideline for the time being in force;
+                              
+                                                  - may give rise to liability on part of the Web or the Company or cause any hindrance (in whole or in part)
+                              
+                              
+                              
+                                                  In case of any violation of the above provisions, the Company has the right to immediately terminate the access or usage rights of the user to the Web without any notice and any such violate information that is displayed or submitted on the Web can be removed immediately and completely.
+                              
+                                                  - You shall be responsible for keeping backup versions of the information and data provided by you. You hereby agree that you will not expect the Web to restore or keep back up of your information and data and not hold the Web or the Company accountable for any loss of data in any circumstances.
+                              
+                                                  - You will also refrain from accessing information or databases in an unauthorized manner from the Web or servers where information or databases are kept.
+                              
+                                                  - You shall not attempt to or circumvent or manipulate any of the obligations conferred on you by this User Agreement. If such attempt is discovered, it will constitute sufficient ground for termination of access to the Web and also for taking appropriate legal actions.
+                              
+                                                  - If you choose to provide feedback on the Web which is visible to other users, you shall exercise due care while making comments and not make any comments that are not factual in nature and shall not post defamatory or illegal or offensive/ obscene contents.
+                              
+                                                  - You undertake not to disclose or distribute any other User's Information to a third party or use the Information for any unauthorized purpose including for the purposes of marketing unless you have obtained the User's express consent to do so.
+                              
+                              
+                              
+                                                  - You shall not place any advertisements on the Web in any manner. Further, you shall not use the Web to promote any other person's business or interests on the Web unless permitted by the Company in writing.
+                              
+                              
+                              
+                              
+                              
+                                                  Obligations Under relevant sections of Indian Cyber Laws:
+                              
+                                                  You agree and acknowledge that
+                              
+                                                  - You shall not use this Web for any purpose that is unlawful and illegal.
+                              
+                                                  - You shall not try to penetrate the web and will not implant any virus, Trojan, worm, spyware, malware, spam, spam, scareware, bots, logic bomb, time bomb, keyloggers and any other automated tool like DOS or DDOS attack tool (Denial of Service attack) which may lead to computer-related offences on our web
+                              
+                                                  - You shall not use this web for publishing or be promoting or transmitting pornographic data or child pornographic details
+                              
+                                                  - You shall not carry out any web jacking attacks on this web.
+                              
+                                                  - You understand, agree and acknowledge that you may be held responsible for the above criminal, fraudulent, dishonest and injurious activities under criminal offences' sections 65, 66, ,66B,66C,66D,66E,66F,67,67A,67B,84B and 84C of Indian Information Technology Act,2000 including any amendments therein based on your IP address and other relevant details
+                              
+                                                  - You further agree and acknowledge that you may be held responsible under sections 43, and 45 of Indian Information Technology Act, 2000 including any amendments therein for compensating damages to company or any other affected party due to business losses such as financial losses, outage losses, opportunity losses, reputational losses and other overheads like repairing, fixing and maintenance in case of any cyber contravention on your part.
+                              
+                              
+                              
+                                                  Privacy of Data
+                              
+                                                  All details of Rollingradius.com will be stored securely on the web server. It is compulsory to refer and agree with our privacy policy and reasonable security practices & procedures.
+                              
+                              
+                              
+                                                  Third Party Links
+                              
+                                                  We may choose from time to time to provide links to various third-party webs from the Web. This may include links to sites owned by our associated companies. These third-party links are provided for your convenience only and are accessed at your own risk. You agree that we have no responsibility or liability for any independent policies or actions of these third-party links and are not responsible in any way for the privacy practices, customer service practices, content or availability of any such website
+                              
+                              
+                              
+                                                  Content
+                              
+                                                  Information, reports, videos, blogs, newsletters and every other feature (Collectively known as "online contents") may be added to and removed from the Service without notice. The Information, reports, videos, blogs, newsletters and other details included in the Service are provided for reference purposes only. They are not intended either as a substitute for professional advice or judgment or to provide legal or other advice with respect to particular circumstances. Every effort is made to keep online contents up to date but users should obtain independent verification or advice before relying on any piece of information in circumstances where loss or damage may result. The Service and online contents are provided on an 'as is' basis and we exclude to the extent permitted by law all implied warranties relating to fitness for a particular purpose.
+                              
+                              
+                              
+                                                  Reasonable care has been taken to ascertain the accuracy of all contents. Rollingradius.com unequivocally states that the contents provided in the web shall not be considered as the authority on that topic/subject. Should the user find that any content is inaccurate or does not agree with that derived by the User then the User may voluntarily undertake to inform RollingRadius about the same through all available means provided in the web of RollingRadius along with the justification / solution / reasoning for the correct content proposed by the user. The User undertakes and acknowledges that RollingRadius shall not be held responsible for any content(s) given that may be / have been proven wrong at a later stage, without recourse through a meaningful dialogue with RollingRadius and providing RollingRadius an opportunity, if required, to undertake corrective action in a mutually agreeable time frame.
+                              
+                              
+                              
+                                                  Indemnity
+                              
+                                                  You shall indemnify and hold harmless the Company and the Company's parent, subsidiaries, affiliates, service partners, third-parties and their respective officers, directors, agents, and employees, from any claim or demand, or actions including reasonable attorneys' fees, made by any third party or penalty imposed due to or arising out of your breach of the User Agreement including the rules and policies incorporated herein by reference, or your violation of any law, rules or regulations or the rights of a third party.
+                              
+                              
+                              
+                                                  Intellectual Property Rights (IPR)
+                              
+                                                  All intellectual property rights and other rights in the online contents (in both machine readable and printed form) belong to appropriate service partner who has uploaded/stored the said contents in its account of web. Users shall not obscure or remove any copyright notices that appear on online contents published on web. However, we may use your online contents for our data analytics purposes as per our privacy policy.
+                              
+                                                  You agree and acknowledge that IPR shall include but not limited to the list of modules and sub-modules of RollingRadius web.
+                              
+                                                  Every effort has been made to ensure the originality and authenticity of every matter on RollingRadius. Similarities with any other matter on similar subjects / topics available in any form elsewhere are purely coincidental. The user unequivocally agrees to ensure that in event of claiming a copyright violation the user will undertake to first inform us through all available means provided in the web of RollingRadius about the nature of copyright violation and suspected user who is prima facie responsible for said copyright violations as well undertakes not to proceed with legal / judicial action without recourse through a meaningful dialogue with us and providing us an opportunity to undertake corrective action, if required, in a mutually agreeable time frame. Further, we have published our intermediary compliance policy as per Section 79 of I.T.Act, 2000 and its rules. Therefore, you agree and acknowledge to adhere to grievance related procedure as described in the said intermediary compliance policy.
+                              
+                                                  Other products/services, retailer names and brand name displayed on the Site may be the trademarks or copyrights of their respective owners.
+                              
+                              
+                              
+                                                  Restrictions:
+                              
+                                                  Users shall not:
+                              
+                                                  - re-sell the Service or any part of the contents to others;
+                              
+                                                  - make the Service or any contents available to Unauthorized Persons on any network;
+                              
+                                                  - abstract, download, store, reproduce, transmit, display, copy, distribute or use web other than as permitted;
+                              
+                                                  - decompile, disassemble or reverse engineer software programs, databases or other systems used by us to provide the Service;
+                              
+                                                  - use the Service for any illegal purpose nor send or post or allow any posting of information which is defamatory or obscene or which violates the legal rights of others, nor use the Service to send any unsolicited promotional or advertising material, or any volume messages which may interfere with the provisio of the Service or the enjoyment of the Service by other users
+                              
+                              
+                              
+                                                  Termination of services
+                              
+                                                  This Agreement shall commence on the Start Date stated in the activation email/sms and shall survive till it is terminated by the company by sending specific e-notice for the same.
+                              
+                                                  If, at any time, we have reasonable grounds to believe that the user is not using the web in accordance with this Agreement including, without limitation, by permitting or acquiescing to the use of the Data by persons other than the users identified in the services ordered, we may suspend the provision of the Service to the User. You agree and acknowledge that we shall have no obligation to reinstate the Service until disputed issue(s) has been agreed between the parties. You further agree and acknowledge that we shall have no liability for any loss, damage or inconvenience caused to you by such a suspension of the Service. Once the suspension has been lifted, and provided that the issues surrounding the suspension have been resolved, the user will be entitled to receive and missing data (if any) accumulated during the suspension period. Also, you agree and acknowledge that any restrictions on access rights due to default on your part shall never be termed as denial of service (DoS) contravention.
+                              
+                                                  Limited liability clause
+                              
+                                                  You agree and acknowledge that in no event shall the Company or its directors, managers, staff members, affiliates and service providers be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data or other intangible losses arising (in any manner whatsoever, including but not limited to negligence) out of or in connection with the web, the Pay Facility, or any other services under this Agreement. Further, you clearly agree and acknowledge that the Company's liability in any circumstance is limited to the amount of charges/ fees, if any, paid by you to the Company. Here, it is clarified that any disputes between Truck Service Provider and End users relating to payments/services shall be governed by Truck Service Provider's policy only. You agree and acknowledge that company being an intermediary shall never be held responsible for such disputes. The Company, its associates, affiliates and service providers and technology partners make no representations or warranties about the accuracy, reliability, completeness, and/or timeliness of any service, content, information, software, text, graphics, links or communications provided on or through the use of the web or that the operation of the web or Pay Facility will be error free and/or uninterrupted. Consequently, the Company being only an intermediary assumes no liability whatsoever for any monetary damages, mental agony, bodily injury, death, accidents or other damages suffered due to any problems in the services on the part of Truck Service Providers or on account of any delay, failure, interruption, or corruption of any data or other information transmitted in connection with use of the web or Pay Facility.
+                              
+                              
+                              
+                                                  Breach
+                              
+                                                  Without limiting other remedies that the Company may pursue, the Company may at its sole discretion take such action as it deems fit including but not limited to limit your activity, immediately remove your information, warn other Users of your actions, forthwith temporarily/indefinitely suspend or terminate or block your services, and/or refuse to provide you with access to the Web or initiate any legal action it may deem fit, particularly in the event:
+                              
+                                                  - You breach any of the provisions of this User Agreement including any of the rules and policies, documents, terms and conditions made there under which are incorporated therein by reference;
+                              
+                                                  - Failure of verification or authentication of any information provided by you;
+                              
+                              
+                              
+                                                  No actions, omissions or decisions taken by the Company shall waive any rights or claims that the Company may have against the User.
+                              
+                                                  Any User that may have been suspended or blocked may not register or attempt to register with the Web or use the Web in any manner whatsoever until such time that such User is reinstated by the Company. Notwithstanding the above, if you breach the User Agreement or the rules and policies and other documents incorporated therein by reference, the Company reserves the right to take strict legal action including but not limited to referral to the appropriate police or other authorities for initiating criminal or civil or other proceedings against you.
+                              
+                              
+                              
+                                                  Grievance Redressal Process
+                              
+                                                  In case of any grievance, objection or complaint on your part with respect to the Web, other Users or the Company, including any complaints or enquiry about suspension, termination or blocking of your services or right to use the Web, you should promptly raise such grievance or complaint with the designated Grievance Officer at support@Rollingradius.com and provide him with all necessary information and/or documents to enable the Company/ Grievance Officer to resolve the issue. The name and contact details of the Grievance Officer is published on the Web as required under the provisions of the Information Technology Act, 2000 and the rules made there under.
+                              
+                              
+                              
+                                                  Consent
+                              
+                                                  The contracting parties of this agreement give their consent which is not only free but also legal and voluntarily in nature, for the purposes of entering into this contract in terms of this Agreement and related policies.
+                              
+                              
+                              
+                                                  Actions in Good Faith
+                              
+                                                  Under this agreement, the actions of both the parties shall be deemed as actions in good faith (bona fide) unless there is evidence to the contrary.
+                              
+                              
+                              
+                                                  Language
+                              
+                                                  1. All notices given under this agreement shall be in English.
+                              
+                                                  2. If there is any inconsistency between any document and any version of the same document, the English version shall be deemed as effective and authoritative.
+                              
+                              
+                              
+                                                  Appropriation of Payments
+                              
+                                                  Unless otherwise agreed and specified in writing, both the parties agreed to the principle of Appropriation of Payments. In this context, the principle of Appropriation of the payment shall mean that: In the case of default on payment on more than two occasions, the subsequent payment shall be regarded as payment towards the fulfillment of the first debt.
+                              
+                              
+                              
+                                                  Injunction
+                              
+                                                  You clearly agree that breach of this agreement might cause us irreparable injury, for which monetary damages would not provide adequate compensation, and that in addition to compensation and any other remedy, we shall be entitled to injunctive relief against such breach or threatened breach, without proving actual damage.
+                              
+                              
+                              
+                                                  Non-Poaching
+                              
+                                                  Both the parties agree and acknowledge that while this Agreement is in force and for a period of Twenty-Four (24) months thereafter, they shall not directly or third party contractors and associates who have been involved in or associated with this Agreement without the other's prior written consent. Both the parties clearly understand and agree that Twenty-Four (24) months period is reasonable after considering training and grooming time as well as investments made on human resources by the parties. Indirectly solicit or offer employment to any of the other's officers, employees,
+                              
+                              
+                              
+                                                  Confidentiality
+                              
+                                                  Both parties to the agreement undertake to keep confidential, all information (oral or written) concerning the business and affairs of the other party which has been obtained or received as a result of entering into this agreement. You categorically and specifically agree and acknowledge that all information, communication and every other material of Social Media 2.0 shall be kept completely confidential.
+                              
+                              
+                              
+                                                  General
+                              
+                                                  None of the provisions of this User Agreement shall be deemed to constitute a partnership or agency between you and the Company and you shall have no authority to bind the Company in any manner whatsoever.
+                              
+                                                  Except as explicitly stated otherwise, any notices directed to the Company shall be given by email to support@rollingradius.com and any notices to you by the Company shall be provided to the email address provided by you during the registration process. Notice shall be deemed given 24 hours after email is sent, unless the sending party is notified that the email address is invalid. Alternatively, we may give you notice by registered mail, postage prepaid and return receipt requested, to the address provided to us during the registration process. In such case, notice shall be deemed given 3 days after the date of mailing.
+                              
+                                                  If any clause of this User Agreement or the application thereof to any User or circumstance shall be deemed invalid, void or for any reason unenforceable to any extent, the remainder of this User Agreement and the application of such unenforceable provision to Users or circumstances other than those as to which it is held invalid or unenforceable shall not be affected thereby, and each provision of this User Agreement shall be valid and enforceable to the fullest extent permitted by law.
+                              
+                                                  This User Agreement together with the rules and policies incorporated herein by reference constitutes the entire understanding and agreement between you and the Company with respect to the subject matter herein.
+                              
+                                                  The Company at its sole discretion shall be entitled to assign or transfer its rights and obligations under this User Agreement hereunder to any other person without your prior consent provided that the Company assigns this User Agreement on the same terms or such terms that are no less favorable to you.
+                              
+                                                  All remedies of the Company under this User Agreement whether provided herein or conferred by statute, civil law, and custom or trade usage, are cumulative and not alternative and may be enforced successively or concurrently.
+                              
+                              
+                              
+                                                  Arbitration
+                              
+                                                  If any dispute arises between you and the Company during your use of the Web or any service incidental to the Web or thereafter, in connection with the validity, interpretation, implementation or alleged breach of any provision of the User Agreement or the rules, policies and documents incorporated therein by reference, the dispute shall be referred to a sole arbitrator who shall be an independent and neutral third party identified by the Company whose decision shall be final. The place of arbitration shall be Jaipur, Rajasthan, India. The Indian Arbitration & Conciliation Act, 1996 (including any amendments therein), shall govern the arbitration proceedings. The arbitration proceedings shall be in the English language.
+                              
+                              
+                              
+                                                  Governing Laws
+                              
+                                                  This User Agreement and all rules, policies and documents incorporated by reference shall be governed and construed in accordance with the laws of India and the Courts in Jaipur, Rajasthan, India shall have exclusive jurisdiction without any conflict of laws. However, in case of any damages due to cyber contraventions, Jurisdiction of Office of Hon'ble Adjudicating officer, Jaipur, State of Rajasthan (India) under I.T.Act, 2000 shall be made applicable.
+                              
+                                                  This document is an electronic record in terms of Information Technology Act, 2000 and the amended provisions pertaining to electronic records in various statutes as amended by the Information Technology Act, 2000. This electronic record is generated by a computer system and does not require any physical signatures.
+                              
+                              
+                              
+                                                  Assignment
+                              
+                                                  This Agreement may not be assigned or sublet by the user without the prior written consent of Company.
+                              
+                              
+                              
+                                                  Taxes
+                              
+                                                  You agree and acknowledge that we shall never be held responsible for any tax liabilities for your transactions. Further, for avoidance of doubt and notwithstanding anything to the contrary herein, You will indemnify, reimburse and hold us harmless from, for and against any sales, use, gross receipts, excise, franchise, business or other taxes or fees (including penalties, fines or interest thereon) imposed by any government or other taxing authority to the extent such taxes or fees are assessed on us which is your primary legal obligation.
+                              
+                              
+                              
+                                                  Entire Agreement
+                              
+                                                  This Agreement including the current or any renewal Schedule is the complete and exclusive statement of the agreement between the parties hereto and supersedes all prior agreements and communications between the parties concerning the subject matter hereof. The user acknowledges that no reliance is placed on any representation made but not embodied in this Agreement. No variation of this Agreement shall be effective unless in writing signed by the parties and expressed to be such a variation.
+                              
+                              
+                              
+                                                  Waiver
+                              
+                                                  No failure or delay by us in exercising any remedy, right or privilege under or in relation to this Agreement shall operate as a waiver of the same nor shall any single or partial exercise of any remedy, right, power or privilege preclude any further exercise of any other right, power or privilege.
+                              
+                              
+                              
+                                                  Heading
+                              
+                                                  The Clause headings in this Agreement are inserted for convenience only and shall not affect the interpretation of this Agreement.
+                              
+                              
+                              
+                                                  Force majeure
+                              
+                                                  We shall be under no liability for any failure, delay or omission by it in the performance of its obligations under this Agreement if such failure delay or omission arises from any cause beyond our control, including, but not limited to acts of god, acts or regulations of any governmental or supra-national authority, war or national emergency, fire, civil disobedience, strikes, lock-outs, technical black-out and industrial disputes.
+                              
+                              
+                              
+                                                  Survival
+                              
+                                                  Unless and to the extent otherwise specified herein, all terms of this Agreement which by their nature extend beyond its termination including but not limited to privacy, payment, IPR, indemnity, restrictions, limited liability, arbitration, taxes and others will remain in effect until fulfilled and apply to respective successors and assigns.
+                              
+                                                  Contract Interpretations
+                              
+                                                  In this agreement unless otherwise specified:
+                              
+                                                  a. Reference to a Subsidiary or Holding Company is to be interpreted in accordance with the Indian Companies Act;
+                              
+                                                  b. Reference to a party is reference to a party of this agreement and this includes the party's permitted assignees and/or the respective successors in title to the whole undertaking;
+                              
+                                                  c. Reference to a person includes any person, individual, company, firm, corporation, government, state or agency of a state, or any undertaking regardless of it having a legal representative or not and notwithstanding of the law under which it exists;
+                              
+                                                  d. Reference to any statute or statutory instrument or any of its provisions shall be interpreted as a statute or statutory instrument or provisions that is re-enacted or amended from time-to-time;
+                              
+                                                  e. All words/terms denoting the singular shall include the plural and vice versa;
+                              
+                                                  f. All words/terms denoting any gender shall include all genders;
+                              
+                                                  g. All references to the clauses and Schedules shall be interpreted as reference to clauses or Schedules of this agreement.
+                              
+                              
+                              
+                                                  Annexure-A Payment Plans, Payment Terms & Refund Policy (Subject to change with Notification)
+                              
+                                                  Payment Plans & Terms:
+                              
+                                                  Payment plans for different types of trucks/transport vehicles shall be as listed on our site.
+                              
+                                                  We accept advance booking only if 20% of actual payment is paid by user in advance.
+                              
+                                                  You clearly agree and acknowledge that out of pocket expenses including but not limited to labour charges, parking charges, night surcharge, RTO challans, RTO taxes, waiting time charges, any type of levy and other similar charges shall not be our liability and therefore it shall be paid by you directly to the appropriate parties.
+                              
+                                                  You authorize and allow us to retain your consignments in case of any type of non-payment from your side. We may return your consignments only after due payment is received in our account.
+                              
+                              
+                              
+                                                  Additional Charges Policy:
+                              
+                                                  You agree and acknowledge that you shall pay extra fare charges for industrial goods which require lot of time this charges may be applicable
+                              
+                                                  Further, you agree and acknowledge that you shall pay additional fare charges in case of availability crunch of transport vehicle.
+                              
+                                                  Also, you clearly understand and agree that additional drop points or pick up points shall be considered additionally in fare charges.
+                              
+                              
+                              
+                                                  Cancellation & Refund Policy:
+                              
+                                                  You agree and acknowledge that you believe in our success story and take our services with confidence. You agree and acknowledge before selecting services and making payment, you have evaluated our services completely as per your requirements. Also, you agree and acknowledge that there is a lot of work involved to achieve every milestone while offering services to you and therefore it shall be very difficult for us to provide any refund.
+                              
+                                                  Further, you agree and acknowledge to notify us immediately for cancellation of a booking request. You shall provide us complete details of booking through our customer care interface. In case your cancellation request is accepted then there shall not be any cancellation fee and we may refund you received amount in 2 weeks' time from the date of cancellation request accepted. However, if a truck or any other transport vehicle is engaged to carry out transportation of the materials has already been dispatched then your booking request shall not be cancelled and there shall not be any refund from our side.
+                              
+                                                  Further, considering the same reasons, you agree and acknowledge that you shall not raise any dispute with payment repository/payment service providers for refunding the payment. In case if you raise any such disputes then you agree, acknowledge and allow us to instruct payment repository/payment service providers to credit payment in our account as per this clause.
+                              
+                              
+                              
+                                                  Intermediary Compliance Statement
+                              
+                                                  These Intermediary Guidelines of compliance statement is in compliance with section 79 of I.T.Act, 2000, and its rules namely The Information Technology (Intermediary Guidelines) Rules, 2011. This statement applies to all users of www.rollingradius.com and other integrated systems ("RollingRadius"). By using this web, you agree and acknowledge to be bound by terms of this statement. References in these Terms to "we" or "us" are references to RollingRadius and its integrated systems and "you" as users of RollingRadius.
+                              
+                                                  The issue of intermediary compliance is extremely crucial for RollingRadius which is committed to safeguarding the information provided by its users as well safeguarding interest of various government agencies.
+                              
+                                                  Terms of statement
+                              
+                                                  1) As per rules of I.T.Act, 2000, we at Rollingradius.com (Intermediary) have published the rules and regulations, privacy policy and user agreement for access or usage of the RollingRadius web and computer resources by any person.
+                              
+                                                  2) As per Such rules and regulations, terms and conditions or user agreement, we hereby inform you not to host, display, upload, modify, publish, transmit, update or share any information that,
+                              
+                                                  a) belongs to another person and to which the user does not have any right to;
+                              
+                                                  b) is grossly harmful, blasphemous, defamatory, obscene, pornographic including child pornography, pedophilic, libelous, invasive of another's privacy, hateful or racially, ethnically objectionable, dispersing, relating or encouraging money laundering or gambling or otherwise unlawful in any manner whatever;
+                              
+                                                  c) Harms minors in any way;
+                              
+                                                  d) Infringes any patent, trademark, copyright or other proprietary rights;
+                              
+                                                  e) Violates any law for the time being in force;
+                              
+                                                  f) Deceives or misleads the address about the origin of such messages or communicates any information which is grossly offensive or menacing in nature;
+                              
+                                                  g) Impersonates another person;
+                              
+                                                  h) Contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer resource;
+                              
+                                                  i) Threatens the unity, integrity, defense, security or sovereignty of India, friendly relations with foreign states, or public order or causes incitement to the commission of any cognizable offence or is insulting any other nation.
+                              
+                                                  3) We at RollingRadius agree that we shall not knowingly host or publish any information or shall not initiate the transaction, select the receiver or transmission and select or modify the information contained in the transmission as specified in clause 2.
+                              
+                                                  4) We at RollingRadius agree that upon obtaining knowledge by itself or been brought to actual knowledge by an affected person in writing or through email signed with electronic signature about any such information as mentioned in clause 2 above, have established the system to act within thirty six hours and where applicable, work with user of such information to disable such information that is in contravention of clause 2. Further, we agree to preserve such information and associated records for at least ninety days for investigation purposes. Furthermore, you clearly agree and acknowledge that you remain solely liable for the content you post in your private messages or on the web.
+                              
+                                                  5) By this statement, we at RollingRadius are informing you that in case of non-compliance with rules and regulations, user agreement and privacy policy for access or usage, we may terminate the access or usage rights of the users on our web and remove non-compliant information.
+                              
+                                                  6) We at RollingRadius agree and acknowledge that when required by lawful order, we will provide information or any such assistance to various Government Agencies who are lawfully authorized for investigative, protective, cyber security activity. The information or any such assistance shall be provided for the purpose of verification of identity, or for prevention, detection, investigation, prosecution, cyber security incidences and punishment of offences under any law for the time being in force, on a request in writing stating clearly the purpose of seeking such information or any such assistance.
+                              
+                                                  7) We at RollingRadius agree and acknowledge that we have implemented all reasonable measures to secure our computer resource and information contained therein following the reasonable security practices and procedures as prescribed in Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Information) Rules, 2011. You agree and acknowledge that our security controls (as listed in privacy policy) shall be considered as reasonable security practices in case of any uncontrollable security attacks.
+                              
+                                                  8) We at RollingRadius agree to share cyber security incidents related information with the Indian Computer Emergency Response Team of India (CERT-IN) as and when requested by authorized representative of CERT-IN.
+                              
+                                                  9) We at RollingRadius agree that we shall not knowingly deploy or install or modify the technical configuration of computer resource or become party to any such act which may change or has the potential to change the normal course of operation of the computer resource than what it is supposed to perform thereby circumventing any law for the time being in force. Provided that we may develop, produce, distribute or employ technical means for the sole purpose of performing the acts of securing the computer resource and information contained therein.
+                              
+                                                  10) We declare that our Grievance Officer shall redress the complaints within one month from the date of receipt of complaint. Affected parties and Govt. authorities are requested to use below information for any grievances.
+                              
+                              
+                              
+                                                  DISCLAIMER
+                              
+                                                  www.rollingradius.com and other integrated services here in after Referred to as "RollingRadius" assures to try its best for relevant services but does not warrant the accuracy or completeness of the services, information and materials or the reliability of any services, advices, opinions, statements or other information as displayed or distributed through the online services, materials and information considering inherent risks relating to technology. You agree and acknowledge that any reliance on any such opinion, advice, statement, memorandum, or information shall be at your own/sole risk and consequences attached thereto. Owing to any typographical error, technical fault or product information published, there may be an incorrect reflection of price of any services and in such an event Truck service provider may cancel order(s).
+                              
+                                                  RollingRadius hereby reserves its right, in its sole discretion, to correct/rectify any errors or omissions in any portion of its service, information and materials. RollingRadius may make any other changes/improvements in to the services, information, materials, products, programs or prices (if any) described/published on the web at any time without any prior notice. All data and information provided on this web is for the purpose of information only.
+                              
+                                                  RollingRadius makes no representations as to accuracy, completeness, suitability, or validity of any services, information and materials on this site and shall not be liable for any errors, omissions, anomalies or delays in the same or any losses, injuries, or damages arising from its display or use. All information is provided on an as-is basis. The content is provided for general information only, and you clearly agree and acknowledge that it shall never be treated as a substitute for the professional advice. Any opinions stated on the Site are the opinions of the authors/service providers. Dependence on any information provided by other visitors to the Site or us is solely at your own risk.
+                              
+                                                  The content comes from sources believed to be accurate, but may contain inaccuracies or typographical errors or may there be a case of omission. RollingRadius makes no representations about the results to be obtained from using the web or the contents there of. The use of the site and the contents is at your own risk. Tips and advice noted on the site might or might not work for everyone or every time and is not a substitute for proper professional advice. The contents posted by you in the form of suggestions and reviews will become our property and you thus grant us the perpetual and transferable rights in such contents. For such use of content by us shall not entitle you any payment or other compensation.
+                              
+                                                  We do not warrant that the servers that make this site available will be error, virus, contaminant, malware or bug free and you agree and accept that it is your responsibility to make adequate provision for protection against such threats. We recommend you for malware/virus scanning every time before using our site including related services and information.
+                              
+                                                  You agree and acknowledge that in RollingRadius site shall never be considered as liable for any incidental, indirect, consequential or special damages of any kind, or any damages whatsoever, including, without limitation, those resulting from loss of profit, loss of contracts, goodwill, data, information, income, anticipated savings, litigation/legal issues or business relationships, whether or not advisedS of the possibility of such damage, arising out of or in connection with the use of this site or any linked apps/sites. Also, you agree and acknowledge that RollingRadius shall never be held responsible for any disputes relating to quality and timeliness of actual truck services considering site's role of being an intermediary. You clearly agree and acknowledge to fully indemnify us in case of any such liabilities.
+                              
+                                                  You further agree that RollingRadius shall not be held responsible for any uncontrollable security attack leading to failures of confidentiality, accuracy, integrity and availability of information on this app/site and in such cases you agree that RollingRadius shall not be held responsible for any type of losses that may occur to you as given in provisions of Indian Information Technology Act, 2000 including any amendments in the said Act and any other relevant Acts. You hereby agree that this disclaimer is governed by Laws of India subject to jurisdiction of Baroda, Gujarat without any conflicts of law.
+                              
+                                                  Nothing in this disclaimer notice excludes or limits any warranty implied by law or fraud through negligence, or anything else which it would not be lawful for RollingRadius LLP to exclude.
+                              
+                                                  By using this Website, you agree and acknowledge to the exclusions and limitations of liability stated above and accept them as reasonable. Do not use this site if you do not agree that they are reasonable. If any of the points in this disclaimer notice are found to be unenforceable under applicable law than that shall have no bearing on the enforceability of the rest of the disclaimer notice.
+                              
+                                                  By using this website, you are clearly accepting all the terms of this disclaimer notice. If you do not agree with anything in this notice you shall not use this site.
+                                              </div>
+                                          </pre>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="pt-2">
+                            <button class="btn btn-lg btn-secondary mr-2" type="submit" [disabled]="!authForm.valid">Submit</button>
+                            <button class="btn btn-lg btn-secondary mr-2" type="button" *ngIf="isLoginMode" (click)="onSwitchMode()">Forget Password</button>
+                            <button class="btn btn-lg btn-secondary" type="button" (click)="onSwitchMode()">{{ !isLoginMode ? 'LogIn' : 'Registeration' }} Here</button>
+                        </div>
+                    </form>
+                    </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^9.0.0",
     "@angular/platform-browser-dynamic": "^9.0.0",
     "@angular/router": "^9.0.0",
+    "@ng-select/ng-select": "4.0.0",
+    "bootstrap": "4.4.1",
     "core-js": "3.6.4",
     "rxjs": "6.5.4",
     "zone.js": "0.10.2"
@@ -45,6 +47,9 @@
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
   },
-  "keywords": ["angular", "starter"],
+  "keywords": [
+    "angular",
+    "starter"
+  ],
   "description": "Angular example starter project"
 }
