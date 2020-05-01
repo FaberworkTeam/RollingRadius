@@ -1,16 +1,4 @@
-.navbar{
-    background-color: #1C272B !important;
-    color: #fff !important;
-    font-size: 1rem !important;
-}
 
-.nav-item > a{
-    color: #fff !important;
-}
-
-.navbar-brand{
-    color: #fff !important;
-}
 
 .dropdown-item{
     line-height: 24px;

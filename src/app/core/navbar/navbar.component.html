@@ -1,122 +1,65 @@
-<nav
-  class="navbar navbar-expand-md navbar-light bordered"
-  style="box-shadow: 0px 0.1px 0px 0px rgba(0,0,0,0.75);"
->
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="../../../assets/favicon.ico" width="23px" class="pb-1" />
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+  <img src="../../../assets/favicon.ico" width="23px" class="pb-1" />
       <b> RollingRadius</b>
-    </a>
-    <button
-      class="navbar-toggler navbar-toggler-right border-0"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbar4"
-      style=""
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbar4">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="http://example.com"
-            id="navbarDropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Vehicle
-          </a>
-          <div
-            class="dropdown-menu animate slideIn"
-            aria-labelledby="navbarDropdownMenuLink"
-          >
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="http://example.com"
-            id="navbarDropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Parcel
-          </a>
-          <div
-            class="dropdown-menu animate slideIn"
-            aria-labelledby="navbarDropdownMenuLink"
-          >
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="http://example.com"
-            id="navbarDropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            >LogIn</a
-          >
-          <div
-            class="dropdown-menu animate slideIn"
-            aria-labelledby="navbarDropdownMenuLink"
-          >
-            <a class="dropdown-item" href="#">LogIn</a>
-            <a class="dropdown-item" href="#">Register</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="http://example.com"
-            id="navbarDropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            >User Name</a
-          >
-          <div
-            class="dropdown-menu animate slideIn"
-            aria-labelledby="navbarDropdownMenuLink"
-          >
-            <a class="dropdown-item" href="#">Logout</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="http://example.com"
-            id="navbarDropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            >English</a
-          >
-          <div
-            class="dropdown-menu animate slideIn"
-            aria-labelledby="navbarDropdownMenuLink"
-          >
-            <a class="dropdown-item" href="#">Hindi</a>
-          </div>
-        </li>
-      </ul>
-    </div>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Vehicle
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Search</a>
+          <a class="dropdown-item" href="#">Manage</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Parcel
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Search</a>
+          <a class="dropdown-item" href="#">Manage</a>
+        </div>
+      </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          User
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Login</a>
+          <a class="dropdown-item" href="#">Register</a>
+		  <a class="dropdown-item" href="#">Forgot Password</a>
+        </div>
+      </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Person Name
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="#">Settings</a>
+		  <a class="dropdown-item" href="#">Market</a>
+		  <a class="dropdown-item" href="#">Cart</a>
+		  <a class="dropdown-item" href="#">Support</a>
+        </div>
+      </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Language
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">English</a>
+          <a class="dropdown-item" href="#">Hindi</a>
+        </div>
+      </li>	
+    </ul>
   </div>
 </nav>
