@@ -12,6 +12,7 @@ import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner.compo
 import { AuthComponent } from "./auth/auth.component";
 import { VehicleSearchComponent } from "./vehicle-search/vehicle-search.component";
 import { NgSelectModule } from "@ng-select/ng-select";
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgSelectModule } from "@ng-select/ng-select";
     HomeComponent,
     LoadingSpinnerComponent,
     AuthComponent,
-    VehicleSearchComponent
+    VehicleSearchComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

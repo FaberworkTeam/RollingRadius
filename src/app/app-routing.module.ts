@@ -4,6 +4,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { VehicleSearchComponent } from './vehicle-search/vehicle-search.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   },
   {path:'auth', component: AuthComponent},
   {path:'vehicle-search', component: VehicleSearchComponent},
+  {path:'admin-dashboard', component: DashboardComponent},
   {path:'**', component: PageNotFoundComponent},
 ];
 
