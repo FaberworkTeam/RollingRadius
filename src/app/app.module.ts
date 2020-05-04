@@ -14,6 +14,8 @@ import { VehicleSearchComponent } from "./vehicle-search/vehicle-search.componen
 import { NgSelectModule } from "@ng-select/ng-select";
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
+import { UserModule } from "./user/user.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
     HttpClientModule,
     FormsModule,
     NgSelectModule,
-    CoreModule
+    CoreModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
