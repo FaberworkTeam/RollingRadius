@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
+
 import { AppComponent } from "./app.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { CoreModule } from "./core/core.module";
@@ -15,6 +16,7 @@ import { NgSelectModule } from "@ng-select/ng-select";
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 import { UserModule } from "./user/user.module";
+
 
 @NgModule({
   declarations: [
@@ -33,9 +35,8 @@ import { UserModule } from "./user/user.module";
     FormsModule,
     NgSelectModule,
     CoreModule,
-    UserModule
+    UserModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

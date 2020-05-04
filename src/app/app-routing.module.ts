@@ -6,14 +6,11 @@ import { AuthComponent } from './auth/auth.component';
 import { VehicleSearchComponent } from './vehicle-search/vehicle-search.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
+import { UserRoutingModule } from './user/user-routing.module';
 
 const routes: Routes = [
   {path:'', redirectTo:'', pathMatch:'full'},
-  {
-    path:'home', 
-    component: HomeComponent,
-
-  },
+  {path:'home', component: HomeComponent, },
   {path:'auth', component: AuthComponent},
   {path:'vehicle-search', component: VehicleSearchComponent},
   {path:'admin-dashboard', component: DashboardComponent},
@@ -22,7 +19,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [UserRoutingModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
